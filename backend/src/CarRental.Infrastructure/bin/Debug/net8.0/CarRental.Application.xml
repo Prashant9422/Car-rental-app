@@ -1,0 +1,557 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarRental.Application</name>
+    </assembly>
+    <members>
+        <member name="T:CarRental.Application.Common.MappingProfile">
+            <summary>
+            AutoMapper profile for entity-to-DTO mappings.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Common.PaginatedResult`1">
+            <summary>
+            Base class for paginated responses.
+            </summary>
+            <typeparam name="T">The type of items in the page.</typeparam>
+        </member>
+        <member name="T:CarRental.Application.Common.RentalSettings">
+            <summary>
+            Configuration settings for rental operations.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.LateFeePerDay">
+            <summary>
+            Late fee charged per day when car is returned late.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.DepositPercentage">
+            <summary>
+            Deposit percentage of total rental cost.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.MinRentalDays">
+            <summary>
+            Minimum number of rental days allowed.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.MaxRentalDays">
+            <summary>
+            Maximum number of rental days allowed in a single booking.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.CancellationFeePercentage">
+            <summary>
+            Cancellation fee as percentage of total rental cost.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.FreeCancellationHours">
+            <summary>
+            Hours before pickup when cancellation is free.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.WeeklyDiscountPercentage">
+            <summary>
+            Discount percentage for weekly rentals (7+ days).
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.Common.RentalSettings.MonthlyDiscountPercentage">
+            <summary>
+            Discount percentage for monthly rentals (30+ days).
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Common.Result`1">
+            <summary>
+            Represents the result of an operation that may succeed or fail.
+            Implements the Result pattern for better error handling.
+            </summary>
+            <typeparam name="T">The type of the value on success.</typeparam>
+        </member>
+        <member name="T:CarRental.Application.Common.Result">
+            <summary>
+            Represents the result of an operation that may succeed or fail (no return value).
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Auth.AuthResponse">
+            <summary>
+            DTO for authentication response.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Auth.LoginRequest">
+            <summary>
+            DTO for login request.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.LoginRequest.Email">
+            <summary>User's email address</summary>
+            <example>admin@carrental.com</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.LoginRequest.Password">
+            <summary>User's password</summary>
+            <example>Admin@123</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Auth.RegisterRequest">
+            <summary>
+            DTO for user registration request.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.Email">
+            <summary>User's email address</summary>
+            <example>john.doe@email.com</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.Password">
+            <summary>Password (min 8 characters, require uppercase, lowercase, and number)</summary>
+            <example>SecurePass123!</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.ConfirmPassword">
+            <summary>Confirm password (must match password)</summary>
+            <example>SecurePass123!</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.FirstName">
+            <summary>User's first name</summary>
+            <example>John</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.LastName">
+            <summary>User's last name</summary>
+            <example>Doe</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Auth.RegisterRequest.PhoneNumber">
+            <summary>User's phone number</summary>
+            <example>+1-555-123-4567</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Car.CarDto">
+            <summary>
+            DTO for car data returned in responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Car.CreateCarRequest">
+            <summary>
+            DTO for creating a new car.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Make">
+            <summary>Car manufacturer</summary>
+            <example>Toyota</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Model">
+            <summary>Car model</summary>
+            <example>Camry</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Year">
+            <summary>Manufacturing year</summary>
+            <example>2024</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.LicensePlate">
+            <summary>License plate number</summary>
+            <example>ABC-1234</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Color">
+            <summary>Car color</summary>
+            <example>Silver</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Mileage">
+            <summary>Current mileage</summary>
+            <example>15000</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.DailyRate">
+            <summary>Daily rental rate in USD</summary>
+            <example>75.00</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Category">
+            <summary>Car category (0=Economy, 1=Compact, 2=Midsize, 3=FullSize, 4=Luxury, 5=SUV, 6=Van, 7=Truck, 8=Convertible, 9=Sports)</summary>
+            <example>2</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.ImageUrl">
+            <summary>URL to car image</summary>
+            <example>https://example.com/cars/toyota-camry.jpg</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Description">
+            <summary>Car description</summary>
+            <example>Comfortable sedan with excellent fuel economy</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.SeatingCapacity">
+            <summary>Number of seats</summary>
+            <example>5</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.FuelType">
+            <summary>Type of fuel</summary>
+            <example>Gasoline</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.Transmission">
+            <summary>Transmission type</summary>
+            <example>Automatic</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.HasAirConditioning">
+            <summary>Has air conditioning</summary>
+            <example>true</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.CreateCarRequest.HasGPS">
+            <summary>Has GPS navigation</summary>
+            <example>true</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Car.UpdateCarRequest">
+            <summary>
+            DTO for updating an existing car.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Make">
+            <summary>Car manufacturer</summary>
+            <example>Toyota</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Model">
+            <summary>Car model</summary>
+            <example>Camry</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Year">
+            <summary>Manufacturing year</summary>
+            <example>2024</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.LicensePlate">
+            <summary>License plate number</summary>
+            <example>ABC-1234</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Color">
+            <summary>Car color</summary>
+            <example>Silver</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Mileage">
+            <summary>Current mileage</summary>
+            <example>15000</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.DailyRate">
+            <summary>Daily rental rate in USD</summary>
+            <example>75.00</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Status">
+            <summary>Car status (0=Available, 1=Rented, 2=Maintenance, 3=Reserved, 4=OutOfService)</summary>
+            <example>0</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Category">
+            <summary>Car category (0=Economy, 1=Compact, 2=Midsize, 3=FullSize, 4=Luxury, 5=SUV, 6=Van, 7=Truck, 8=Convertible, 9=Sports)</summary>
+            <example>2</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.ImageUrl">
+            <summary>URL to car image</summary>
+            <example>https://example.com/cars/toyota-camry.jpg</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Description">
+            <summary>Car description</summary>
+            <example>Comfortable sedan with excellent fuel economy</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.SeatingCapacity">
+            <summary>Number of seats</summary>
+            <example>5</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.FuelType">
+            <summary>Type of fuel</summary>
+            <example>Gasoline</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.Transmission">
+            <summary>Transmission type</summary>
+            <example>Automatic</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.HasAirConditioning">
+            <summary>Has air conditioning</summary>
+            <example>true</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Car.UpdateCarRequest.HasGPS">
+            <summary>Has GPS navigation</summary>
+            <example>true</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Payment.CreatePaymentRequest">
+            <summary>
+            DTO for creating a new payment.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Payment.CreatePaymentRequest.RentalId">
+            <summary>ID of the rental to pay for</summary>
+            <example>3fa85f64-5717-4562-b3fc-2c963f66afa6</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Payment.CreatePaymentRequest.Amount">
+            <summary>Payment amount in USD</summary>
+            <example>150.00</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Payment.CreatePaymentRequest.PaymentMethod">
+            <summary>Payment method (0=CreditCard, 1=DebitCard, 2=Cash, 3=BankTransfer, 4=PayPal)</summary>
+            <example>0</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Payment.CreatePaymentRequest.Description">
+            <summary>Optional payment description or notes</summary>
+            <example>Initial rental payment</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Payment.PaymentDto">
+            <summary>
+            DTO for payment data returned in responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Rental.CompleteRentalRequest">
+            <summary>
+            DTO for completing/returning a rental.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CompleteRentalRequest.ActualReturnDate">
+            <summary>Actual date and time the car was returned</summary>
+            <example>2026-02-07T14:30:00</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CompleteRentalRequest.OdometerAtReturn">
+            <summary>Odometer reading at return (optional)</summary>
+            <example>15350</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CompleteRentalRequest.DamageCharges">
+            <summary>Amount to charge for any vehicle damage (optional)</summary>
+            <example>0.00</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CompleteRentalRequest.Notes">
+            <summary>Additional notes about the return condition</summary>
+            <example>Vehicle returned in good condition, minor exterior dust</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Rental.CreateRentalRequest">
+            <summary>
+            DTO for creating a new rental.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.CarId">
+            <summary>ID of the car to rent</summary>
+            <example>3fa85f64-5717-4562-b3fc-2c963f66afa6</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.CustomerId">
+            <summary>ID of the customer</summary>
+            <example>3fa85f64-5717-4562-b3fc-2c963f66afa6</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.StartDate">
+            <summary>Rental start date</summary>
+            <example>2026-02-01</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.EndDate">
+            <summary>Rental end date</summary>
+            <example>2026-02-07</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.PickupLocation">
+            <summary>Pickup location address</summary>
+            <example>123 Main Street, Downtown</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.ReturnLocation">
+            <summary>Return location address</summary>
+            <example>456 Airport Road, Terminal 1</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.Rental.CreateRentalRequest.Notes">
+            <summary>Additional notes</summary>
+            <example>Please have the car ready by 10 AM</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.Rental.RentalDto">
+            <summary>
+            DTO for rental data returned in responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.User.UpdateUserRequest">
+            <summary>
+            DTO for updating a user profile.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.FirstName">
+            <summary>User's first name</summary>
+            <example>John</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.LastName">
+            <summary>User's last name</summary>
+            <example>Doe</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.PhoneNumber">
+            <summary>User's phone number</summary>
+            <example>+1-555-123-4567</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.Street">
+            <summary>Street address</summary>
+            <example>123 Main Street</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.City">
+            <summary>City</summary>
+            <example>New York</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.State">
+            <summary>State or Province</summary>
+            <example>NY</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.PostalCode">
+            <summary>Postal/ZIP code</summary>
+            <example>10001</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.Country">
+            <summary>Country</summary>
+            <example>USA</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.DriversLicenseNumber">
+            <summary>Driver's license number</summary>
+            <example>DL123456789</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.DriversLicenseExpiry">
+            <summary>Driver's license expiry date</summary>
+            <example>2028-12-31</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.User.UpdateUserRequest.DateOfBirth">
+            <summary>Date of birth</summary>
+            <example>1990-05-15</example>
+        </member>
+        <member name="T:CarRental.Application.DTOs.User.UserDto">
+            <summary>
+            DTO for user data returned in responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.VehicleMaintenance.VehicleMaintenanceDto">
+            <summary>
+            DTO for vehicle maintenance data returned in responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest">
+            <summary>
+            Request DTO for creating a new maintenance record.
+            </summary>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.CarId">
+            <summary>ID of the car being serviced</summary>
+            <example>3fa85f64-5717-4562-b3fc-2c963f66afa6</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.ServiceDate">
+            <summary>Date of service</summary>
+            <example>2026-01-29</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.Description">
+            <summary>Detailed description of the maintenance work</summary>
+            <example>Full oil change with synthetic 5W-30, replaced oil filter</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.ServiceType">
+            <summary>Type of service performed</summary>
+            <example>Oil Change</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.Cost">
+            <summary>Total cost of the maintenance in USD</summary>
+            <example>89.99</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.OdometerReading">
+            <summary>Odometer reading at time of service</summary>
+            <example>45000</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.NextServiceDue">
+            <summary>Date when next service is due</summary>
+            <example>2026-04-29</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.ServiceProvider">
+            <summary>Name of the service provider/mechanic</summary>
+            <example>Quick Lube Auto Center</example>
+        </member>
+        <member name="P:CarRental.Application.DTOs.VehicleMaintenance.CreateMaintenanceRequest.Notes">
+            <summary>Additional notes about the service</summary>
+            <example>Brake pads at 60% wear, recommend replacement at next service</example>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IAuthService">
+            <summary>
+            Service interface for authentication operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.ICarService">
+            <summary>
+            Service interface for car operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IJwtTokenService">
+            <summary>
+            Service interface for JWT token operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IPaymentService">
+            <summary>
+            Service interface for payment operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IPricingService">
+            <summary>
+            Service interface for pricing calculations.
+            </summary>
+        </member>
+        <member name="M:CarRental.Application.Interfaces.IPricingService.CalculateRentalCost(CarRental.Domain.Entities.Car,System.DateTime,System.DateTime)">
+            <summary>
+            Calculates the total rental cost including any applicable discounts.
+            </summary>
+        </member>
+        <member name="M:CarRental.Application.Interfaces.IPricingService.CalculateDeposit(System.Decimal)">
+            <summary>
+            Calculates the deposit amount based on rental cost.
+            </summary>
+        </member>
+        <member name="M:CarRental.Application.Interfaces.IPricingService.CalculateLateFee(System.DateTime,System.DateTime)">
+            <summary>
+            Calculates late fees for a rental.
+            </summary>
+        </member>
+        <member name="M:CarRental.Application.Interfaces.IPricingService.CalculateCancellationFee(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            Calculates cancellation fee for a rental.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.PricingResult">
+            <summary>
+            Result of pricing calculation including breakdown.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IRentalService">
+            <summary>
+            Service interface for rental operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Interfaces.IUserService">
+            <summary>
+            Service interface for user operations.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.AuthService">
+            <summary>
+            Implementation of authentication service.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.CarService">
+            <summary>
+            Implementation of car service with business logic.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.PaymentService">
+            <summary>
+            Implementation of payment service.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.PricingService">
+            <summary>
+            Implementation of pricing service with configurable rates.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.RentalService">
+            <summary>
+            Implementation of rental service with business logic.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Services.UserService">
+            <summary>
+            Implementation of user service.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Validators.CreateCarValidator">
+            <summary>
+            Validator for CreateCarRequest.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Validators.CreatePaymentValidator">
+            <summary>
+            Validator for CreatePaymentRequest.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Validators.CreateRentalValidator">
+            <summary>
+            Validator for CreateRentalRequest.
+            </summary>
+        </member>
+        <member name="T:CarRental.Application.Validators.RegisterValidator">
+            <summary>
+            Validator for RegisterRequest.
+            </summary>
+        </member>
+    </members>
+</doc>

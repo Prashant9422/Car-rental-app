@@ -1,0 +1,243 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Infrastructure/CarRental.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/CarRental.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/CarRental.Application.csproj",
+        "projectName": "CarRental.Application",
+        "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/CarRental.Application.csproj",
+        "packagesPath": "/Users/prashantkumar/.nuget/packages/",
+        "outputPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/prashantkumar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj": {
+                "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj",
+        "projectName": "CarRental.Domain",
+        "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj",
+        "packagesPath": "/Users/prashantkumar/.nuget/packages/",
+        "outputPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/prashantkumar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Infrastructure/CarRental.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Infrastructure/CarRental.Infrastructure.csproj",
+        "projectName": "CarRental.Infrastructure",
+        "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Infrastructure/CarRental.Infrastructure.csproj",
+        "packagesPath": "/Users/prashantkumar/.nuget/packages/",
+        "outputPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/prashantkumar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/CarRental.Application.csproj": {
+                "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Application/CarRental.Application.csproj"
+              },
+              "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj": {
+                "projectPath": "/Users/prashantkumar/Desktop/CarRental-backend/backend/src/CarRental.Domain/CarRental.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarRental.API</name>
+    </assembly>
+    <members>
+        <member name="T:CarRental.API.Controllers.AuthController">
+            <summary>
+            API endpoints for authentication.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.AuthController.Register(CarRental.Application.DTOs.Auth.RegisterRequest,System.Threading.CancellationToken)">
+            <summary>
+            Register a new user.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.AuthController.Login(CarRental.Application.DTOs.Auth.LoginRequest,System.Threading.CancellationToken)">
+            <summary>
+            Login with email and password.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.AuthController.RefreshToken(CarRental.API.Controllers.RefreshTokenRequest,System.Threading.CancellationToken)">
+            <summary>
+            Refresh the authentication token.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.RefreshTokenRequest">
+            <summary>
+            DTO for refresh token request.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.BaseApiController">
+            <summary>
+            Base controller with common functionality.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.BaseApiController.HandleResult``1(CarRental.Application.Common.Result{``0})">
+            <summary>
+            Converts a Result to an appropriate ActionResult.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.BaseApiController.HandleResult(CarRental.Application.Common.Result)">
+            <summary>
+            Converts a Result (without value) to an appropriate ActionResult.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.ApiResponse`1">
+            <summary>
+            Standard API response wrapper.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.ApiResponse">
+            <summary>
+            Standard API response wrapper without data.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.CarsController">
+            <summary>
+            API endpoints for car management.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.GetAll(System.Threading.CancellationToken)">
+            <summary>
+            Get all cars.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a car by ID.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.GetAvailable(System.DateTime,System.DateTime,System.Threading.CancellationToken)">
+            <summary>
+            Get available cars for a date range.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.Search(System.String,System.String,System.Nullable{CarRental.Domain.Enums.CarCategory},System.Nullable{System.Decimal},System.Threading.CancellationToken)">
+            <summary>
+            Search cars with filters.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.Create(CarRental.Application.DTOs.Car.CreateCarRequest,System.Threading.CancellationToken)">
+            <summary>
+            Create a new car.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.Update(System.Guid,CarRental.Application.DTOs.Car.UpdateCarRequest,System.Threading.CancellationToken)">
+            <summary>
+            Update an existing car.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete a car.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.CarsController.UpdateStatus(System.Guid,CarRental.Domain.Enums.CarStatus,System.Threading.CancellationToken)">
+            <summary>
+            Update car status.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.PaymentsController">
+            <summary>
+            API endpoints for payment management.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.PaymentsController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a payment by ID.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.PaymentsController.GetByRental(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get payments for a rental.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.PaymentsController.Create(CarRental.Application.DTOs.Payment.CreatePaymentRequest,System.Threading.CancellationToken)">
+            <summary>
+            Create a new payment.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.PaymentsController.Process(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Process a pending payment.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.PaymentsController.Refund(System.Guid,System.Nullable{System.Decimal},System.Threading.CancellationToken)">
+            <summary>
+            Refund a completed payment.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.RentalsController">
+            <summary>
+            API endpoints for rental management.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetAll(System.Threading.CancellationToken)">
+            <summary>
+            Get all rentals.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a rental by ID.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetByCustomer(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get rentals by customer ID.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetByStatus(CarRental.Domain.Enums.RentalStatus,System.Threading.CancellationToken)">
+            <summary>
+            Get rentals by status.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetActive(System.Threading.CancellationToken)">
+            <summary>
+            Get active rentals.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.GetOverdue(System.Threading.CancellationToken)">
+            <summary>
+            Get overdue rentals.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.Create(CarRental.Application.DTOs.Rental.CreateRentalRequest,System.Threading.CancellationToken)">
+            <summary>
+            Create a new rental.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.Confirm(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Confirm a pending rental.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.Start(System.Guid,System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Start a confirmed rental (pickup).
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.Complete(System.Guid,CarRental.Application.DTOs.Rental.CompleteRentalRequest,System.Threading.CancellationToken)">
+            <summary>
+            Complete a rental (return).
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.RentalsController.Cancel(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Cancel a rental.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Controllers.UsersController">
+            <summary>
+            API endpoints for user management.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.GetAllCustomers(System.Threading.CancellationToken)">
+            <summary>
+            Get all customers.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a user by ID.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.Update(System.Guid,CarRental.Application.DTOs.User.UpdateUserRequest,System.Threading.CancellationToken)">
+            <summary>
+            Update a user profile.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete a user.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.Deactivate(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deactivate a user account.
+            </summary>
+        </member>
+        <member name="M:CarRental.API.Controllers.UsersController.Activate(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Activate a user account.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Filters.ValidationFilter">
+            <summary>
+            Action filter for validating requests using FluentValidation.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Middleware.GlobalExceptionHandler">
+            <summary>
+            Global exception handling middleware that transforms exceptions into API responses.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Middleware.ErrorResponse">
+            <summary>
+            Standard error response structure.
+            </summary>
+        </member>
+        <member name="T:CarRental.API.Middleware.GlobalExceptionHandlerExtensions">
+            <summary>
+            Extension method for adding the middleware.
+            </summary>
+        </member>
+    </members>
+</doc>

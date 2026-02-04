@@ -1,0 +1,45 @@
+2026-02-05 00:32:08.878 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Cars - null null
+2026-02-05 00:32:08.881 +05:30 [INF] Executing endpoint 'CarRental.API.Controllers.CarsController.GetAll (CarRental.API)'
+2026-02-05 00:32:08.881 +05:30 [INF] Route matched with {action = "GetAll", controller = "Cars"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.Threading.CancellationToken) on controller CarRental.API.Controllers.CarsController (CarRental.API).
+2026-02-05 00:32:08.883 +05:30 [INF] Getting all cars
+2026-02-05 00:32:08.886 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."Category", "c"."Color", "c"."CreatedAt", "c"."CreatedBy", "c"."DailyRate", "c"."Description", "c"."FuelType", "c"."HasAirConditioning", "c"."HasGPS", "c"."ImageUrl", "c"."LastMaintenanceDate", "c"."LicensePlate", "c"."Make", "c"."Mileage", "c"."Model", "c"."NextMaintenanceDate", "c"."SeatingCapacity", "c"."Status", "c"."Transmission", "c"."UpdatedAt", "c"."UpdatedBy", "c"."Year"
+FROM "Cars" AS "c"
+2026-02-05 00:32:08.886 +05:30 [INF] Executing OkObjectResult, writing value of type 'CarRental.API.Controllers.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[CarRental.Application.DTOs.Car.CarDto, CarRental.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-05 00:32:08.887 +05:30 [INF] Executed action CarRental.API.Controllers.CarsController.GetAll (CarRental.API) in 5.746ms
+2026-02-05 00:32:08.887 +05:30 [INF] Executed endpoint 'CarRental.API.Controllers.CarsController.GetAll (CarRental.API)'
+2026-02-05 00:32:08.888 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Cars - 200 null application/json; charset=utf-8 9.5645ms
+2026-02-05 00:36:39.340 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Rentals/customer/11111111-1111-1111-1111-111111111111 - null null
+2026-02-05 00:36:39.347 +05:30 [INF] Executing endpoint 'CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API)'
+2026-02-05 00:36:39.348 +05:30 [INF] Route matched with {action = "GetByCustomer", controller = "Rentals"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByCustomer(System.Guid, System.Threading.CancellationToken) on controller CarRental.API.Controllers.RentalsController (CarRental.API).
+2026-02-05 00:36:39.351 +05:30 [INF] Getting rentals for customer: "11111111-1111-1111-1111-111111111111"
+2026-02-05 00:36:39.357 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."ActualReturnDate", "r"."CarId", "r"."CreatedAt", "r"."CreatedBy", "r"."CustomerId", "r"."DailyRate", "r"."DamageCharges", "r"."DepositAmount", "r"."DepositReturned", "r"."EndDate", "r"."LateFee", "r"."Notes", "r"."OdometerAtPickup", "r"."OdometerAtReturn", "r"."PickupLocation", "r"."ReturnLocation", "r"."StartDate", "r"."Status", "r"."TotalCost", "r"."UpdatedAt", "r"."UpdatedBy", "c"."Id", "c"."Category", "c"."Color", "c"."CreatedAt", "c"."CreatedBy", "c"."DailyRate", "c"."Description", "c"."FuelType", "c"."HasAirConditioning", "c"."HasGPS", "c"."ImageUrl", "c"."LastMaintenanceDate", "c"."LicensePlate", "c"."Make", "c"."Mileage", "c"."Model", "c"."NextMaintenanceDate", "c"."SeatingCapacity", "c"."Status", "c"."Transmission", "c"."UpdatedAt", "c"."UpdatedBy", "c"."Year", "u"."Id", "u"."City", "u"."Country", "u"."CreatedAt", "u"."CreatedBy", "u"."DateOfBirth", "u"."DriversLicenseExpiry", "u"."DriversLicenseNumber", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."PhoneNumber", "u"."PostalCode", "u"."Role", "u"."State", "u"."Street", "u"."UpdatedAt", "u"."UpdatedBy"
+FROM "Rentals" AS "r"
+INNER JOIN "Cars" AS "c" ON "r"."CarId" = "c"."Id"
+INNER JOIN "Users" AS "u" ON "r"."CustomerId" = "u"."Id"
+WHERE "r"."CustomerId" = @__customerId_0
+ORDER BY "r"."CreatedAt" DESC
+2026-02-05 00:36:39.358 +05:30 [INF] Executing OkObjectResult, writing value of type 'CarRental.API.Controllers.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[CarRental.Application.DTOs.Rental.RentalDto, CarRental.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-05 00:36:39.358 +05:30 [INF] Executed action CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API) in 9.8507ms
+2026-02-05 00:36:39.358 +05:30 [INF] Executed endpoint 'CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API)'
+2026-02-05 00:36:39.359 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Rentals/customer/11111111-1111-1111-1111-111111111111 - 200 null application/json; charset=utf-8 18.8372ms
+2026-02-05 00:36:39.362 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Rentals/customer/11111111-1111-1111-1111-111111111111 - null null
+2026-02-05 00:36:39.362 +05:30 [INF] Executing endpoint 'CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API)'
+2026-02-05 00:36:39.363 +05:30 [INF] Route matched with {action = "GetByCustomer", controller = "Rentals"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByCustomer(System.Guid, System.Threading.CancellationToken) on controller CarRental.API.Controllers.RentalsController (CarRental.API).
+2026-02-05 00:36:39.363 +05:30 [INF] Getting rentals for customer: "11111111-1111-1111-1111-111111111111"
+2026-02-05 00:36:39.364 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__customerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."ActualReturnDate", "r"."CarId", "r"."CreatedAt", "r"."CreatedBy", "r"."CustomerId", "r"."DailyRate", "r"."DamageCharges", "r"."DepositAmount", "r"."DepositReturned", "r"."EndDate", "r"."LateFee", "r"."Notes", "r"."OdometerAtPickup", "r"."OdometerAtReturn", "r"."PickupLocation", "r"."ReturnLocation", "r"."StartDate", "r"."Status", "r"."TotalCost", "r"."UpdatedAt", "r"."UpdatedBy", "c"."Id", "c"."Category", "c"."Color", "c"."CreatedAt", "c"."CreatedBy", "c"."DailyRate", "c"."Description", "c"."FuelType", "c"."HasAirConditioning", "c"."HasGPS", "c"."ImageUrl", "c"."LastMaintenanceDate", "c"."LicensePlate", "c"."Make", "c"."Mileage", "c"."Model", "c"."NextMaintenanceDate", "c"."SeatingCapacity", "c"."Status", "c"."Transmission", "c"."UpdatedAt", "c"."UpdatedBy", "c"."Year", "u"."Id", "u"."City", "u"."Country", "u"."CreatedAt", "u"."CreatedBy", "u"."DateOfBirth", "u"."DriversLicenseExpiry", "u"."DriversLicenseNumber", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."PhoneNumber", "u"."PostalCode", "u"."Role", "u"."State", "u"."Street", "u"."UpdatedAt", "u"."UpdatedBy"
+FROM "Rentals" AS "r"
+INNER JOIN "Cars" AS "c" ON "r"."CarId" = "c"."Id"
+INNER JOIN "Users" AS "u" ON "r"."CustomerId" = "u"."Id"
+WHERE "r"."CustomerId" = @__customerId_0
+ORDER BY "r"."CreatedAt" DESC
+2026-02-05 00:36:39.365 +05:30 [INF] Executing OkObjectResult, writing value of type 'CarRental.API.Controllers.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[CarRental.Application.DTOs.Rental.RentalDto, CarRental.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-05 00:36:39.365 +05:30 [INF] Executed action CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API) in 1.9129ms
+2026-02-05 00:36:39.365 +05:30 [INF] Executed endpoint 'CarRental.API.Controllers.RentalsController.GetByCustomer (CarRental.API)'
+2026-02-05 00:36:39.365 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Rentals/customer/11111111-1111-1111-1111-111111111111 - 200 null application/json; charset=utf-8 3.3928ms
+2026-02-05 00:36:44.200 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-02-05 00:36:44.232 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 31.2349ms
+2026-02-05 00:36:44.319 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-02-05 00:36:44.401 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 81.3293ms
